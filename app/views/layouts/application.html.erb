@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KADAI2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-12">
+
+        <div class="container-fruid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation"></button>
+
+            <a class="logo" href="#">Bookers</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navigation">
+
+          <ul class="right">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to user_path(current_user.id), class: "home" do %><!--idこれでいいのか-->
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                  <span class="header-list">Home</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path, class: "users" do %><!--idこれでいいのか-->
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span class="header-list">Users</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to books_path, class: "books" do %>
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  <span class="header-list">Books</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class: "logout" do %>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <span class="header-list">Logout</span>
+                <% end %>
+              </li>
+
+            <% else %>
+
+              <li>
+                <%= link_to root_path, class: "home" do %>
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                  <span class="header-list">Home</span>
+                <% end %> <!-- 行き先？？-->
+              </li>
+              <li>
+                <%= link_to about_path, class: "about" do %>
+                  <i class="fa fa-link" aria-hidden="true"></i>
+                  <span class="header-list">About</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class: "sign_up" do%>
+                  <i class="fa fa-address-book" aria-hidden="true"></i>
+                  <span class="header-list">Sign up</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path, class: "sign_in" do %>
+                  <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  <span class="header-list">Login</span>
+                <% end %>
+              </li>
+
+　　　　　　　<% end %>
+          </ul>
+
+          <p class="navbar-text navbar-right"></p>
+        </div>
+        </div><!--navbar-header-->
+      </div><!--container-fruid-->
+    </div><!--col-md-->
+  </div><!--row-->
+</nav> <!--container-->
+
+   </div>
+
+　　<%= yield %>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<div class="col-md-3">
+      <h2>User Info</h2>
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+      <table class="table table-hover width">
+      	<tr>
+      	  <th> name </th><br>
+      	  <td> <%= user.name %> </td>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <td> <%= user.introduction %> </td>
+        </tr>
+      </table>
+
+      <% if user.id == current_user.id %>
+      <%= link_to edit_user_path(user.id), class: "edit_user#{current_user.id}" do %>
+      <div class="border">
+      <button type="button" class="btn btn-light btn-block radius"> <i class="fa fa-wrench rench" aria-hidden="true"></i> </button>
+      </div>
+      <% end %>
+      <% else %>
+      <div class="border">
+      <%= link_to user_path(current_user.id), class: "edit_user#{current_user.id}" do %>
+      <button type="button" class="btn btn-light btn-block radius"> <i class="fa fa-wrench rench" aria-hidden="true"></i> </button>
+      </div>
+      <% end %>
+      <% end %>
+
+      <h2>New book</h2>
+      <p><strong>Title</strong></p>
+      <%= form_for(book) do |f| %>
+        <%= f.text_field :title, class: "book_title width" %>
+      <p><strong>Opinion</strong></p>
+        <%= f.text_area :body, class: "book_body width" %>
+      <%= f.submit "Create Book", :class=>"btn btn-primary btn-block" %>
+      <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <p class="notice"> <%= notice %> </p>
+
+  <div class="row">
+
+    <div class="col-md-8">
+      <h1>welcome to<span><i class="fa fa-book abc" aria-hidden="true"></i></span>Bookers !!</h1>
+      <p class="intro">In <strong>Bookers</strong><i class="fa fa-book abc" aria-hidden="true"></i></span>,<br>
+       you can share and exchange your opinions, inpressions, and emotions<br>
+       about various books!
+      </p>
+      <%= link_to new_user_session_path do %>
+        <button type="button" class="btn btn-info btn-block col-md-offset-1">Log in</button>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <button type="button" class="btn btn-success btn-block col-md-offset-1">Sign up</button>
+      <% end %>
+    </div>
+
+    <div class="col-md-9">
+      <p class="right">CopyRight Infratop.inc</p>
+    </div>
+
+  </div>
+</div>

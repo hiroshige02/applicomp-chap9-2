@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-7">
+
+      <h1>Editing Book</h1>
+      <%= form_for(@book) do |f| %>
+        <p><strong>Title</strong></p>
+        <%= f.text_field :title, class:"width" %>
+        <p><strong>Opinion</strong></p>
+        <%= f.text_area :body, class:"width" %>
+        <%= f.submit "Update Book", :class=>"btn btn-success btn-block" %>
+      <% end %>
+
+      <p>
+        <%= link_to "Show", book_path(@book.id), class:"book_#{@book.id}" %>
+        <span>|</span>
+        <%= link_to "Back", books_path, class: "back" %>
+      </p>
+
+    </div>
+
+    <div class="col-md-8">
+      <p class="right">CopyRight Infratop.inc</p>
+    </div>
+
+  </div>
+</div>

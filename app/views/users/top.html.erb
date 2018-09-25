@@ -9,10 +9,10 @@
        you can share and exchange your opinions, inpressions, and emotions<br>
        about various books!
       </p>
-      <%= link_to new_user_session_path do %>
+      <%= link_to new_user_session_path class: "sign_in" do %>
         <button type="button" class="btn btn-info btn-block col-md-offset-1">Log in</button>
       <% end %>
-      <%= link_to new_user_registration_path do %>
+      <%= link_to new_user_registration_path class: "sign_up" do %>
         <button type="button" class="btn btn-success btn-block col-md-offset-1">Sign up</button>
       <% end %>
     </div>

@@ -13,14 +13,14 @@
       </table>
 
       <% if user.id == current_user.id %>
-      <%= link_to edit_user_path(user.id), class: "edit_user#{current_user.id}" do %>
+      <%= link_to edit_user_path(user.id), class: "edit_user_#{user.id}" do %>
       <div class="border">
       <button type="button" class="btn btn-light btn-block radius"> <i class="fa fa-wrench rench" aria-hidden="true"></i> </button>
       </div>
       <% end %>
       <% else %>
       <div class="border">
-      <%= link_to user_path(current_user.id), class: "edit_user#{current_user.id}" do %>
+      <%= link_to user_path(current_user.id), class: "edit_user_#{user.id}" do %>
       <button type="button" class="btn btn-light btn-block radius"> <i class="fa fa-wrench rench" aria-hidden="true"></i> </button>
       </div>
       <% end %>

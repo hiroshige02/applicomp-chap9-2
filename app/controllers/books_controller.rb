@@ -15,7 +15,7 @@ def create
   @book = Book.new(book_params)
   @book.user_id = current_user.id
   if @book.save
-    redirect_to user_path(current_user.id), notice: "Book was successfully created."
+    redirect_to book_path(@book.id), notice: "Book was successfully created."
   else
     @books = Book.page(params[:page]).reverse_order
   	render :index
